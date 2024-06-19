@@ -30,7 +30,7 @@
     type: ['fire', 'flying'],
   },
   // Update list as you increase pokedex
-]
+];
 
   // For Loop of PokemonList
 for (let i = 0; i < pokemonList.length; i++)
@@ -38,16 +38,15 @@ for (let i = 0; i < pokemonList.length; i++)
     let pokemon = pokemonList[i];
 
   // List Pokemon with Name and Height attribute
-    document.write('<li>', pokemon.name + ' (Height): ' + pokemon.height + '<p>' + '</li>');
-  }
- 
+    document.write(pokemon.name + ' (Height): ' + pokemon.height);
+
   // Highlight if the Pokemon is small, average, or large
-  if (pokemon.height >= 6) {
-    document.write(pokemon.name + 'That is a big Pokemon!');
-  }
-  else if (pokemon.height >= 3 && pokemon.height < 6) {
-    document.write(pokemon.name + 'That is an average Pokemon.');
-  }
-  else {
-    document.write(pokemon.name + 'That is a tiny Pokemon!');
+  if (pokemon.height >= 6) 
+    document.write(' That is a big Pokemon! ' + '<p>');
+  
+  else if (pokemon.height >= 3 && pokemon.height < 6) 
+    document.write(' That is an average Pokemon. ' + '<p>');
+  
+  else 
+    document.write(' That is a tiny Pokemon! ' + '<p>');
 }
