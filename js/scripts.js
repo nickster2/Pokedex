@@ -1,5 +1,5 @@
-var pokemonList = [];
-  let pokemonList = [{ 
+  let pokemonList = [
+  { 
     name: 'Bulbasaur',
     height: 2.04,
     type: ['grass', 'poison']
@@ -29,4 +29,25 @@ var pokemonList = [];
     height: 5.07,
     type: ['fire', 'flying'],
   },
+  // Update list as you increase pokedex
 ]
+
+  // For Loop of PokemonList
+for (let i = 0; i < pokemonList.length; i++)
+  {
+    let pokemon = pokemonList[i];
+
+  // List Pokemon with Name and Height attribute
+    document.write('<li>', pokemon.name + ' (Height): ' + pokemon.height + '<p>' + '</li>');
+  }
+ 
+  // Highlight if the Pokemon is small, average, or large
+  if (pokemon.height >= 6) {
+    document.write(pokemon.name + 'That is a big Pokemon!');
+  }
+  else if (pokemon.height >= 3 && pokemon.height < 6) {
+    document.write(pokemon.name + 'That is an average Pokemon.');
+  }
+  else {
+    document.write(pokemon.name + 'That is a tiny Pokemon!');
+}
