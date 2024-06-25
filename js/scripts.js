@@ -68,7 +68,6 @@ let pokemonList2 = [
     for (let i = 0; i < list.length; i++){
   {
     let pokemon = pokemonList[i];
-
   // List Pokemon with Name and Height attribute
     document.write("<p>" + list[i].name + ' (Height): ' + pokemon.height + "</p>");
 
