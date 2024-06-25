@@ -81,4 +81,10 @@ let pokemonList2 = [
   
   else 
     document.write(' That is a tiny Pokemon! ' + '<p>');
+ }
 }
+}
+
+// Calling Function two times
+printArrayDetails(pokemonList);
+printArrayDetails(pokemonList2);
