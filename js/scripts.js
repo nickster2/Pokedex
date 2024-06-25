@@ -32,13 +32,14 @@
   // Update list as you increase pokedex
 ];
 
-  // For Loop of PokemonList
-for (let i = 0; i < pokemonList.length; i++)
+  // Declaration of Function & Parameter
+  function printArrayDetails(list) {
+    for (let i = 0; i < list.length; i++){
   {
     let pokemon = pokemonList[i];
 
   // List Pokemon with Name and Height attribute
-    document.write(pokemon.name + ' (Height): ' + pokemon.height);
+    document.write("<p>" + list[i].name + ' (Height): ' + pokemon.height + "</p>");
 
   // Highlight if the Pokemon is small, average, or large
   if (pokemon.height >= 6) 
