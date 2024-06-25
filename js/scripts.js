@@ -31,6 +31,37 @@
   },
   // Update list as you increase pokedex
 ];
+let pokemonList2 = [
+ { name: 'Bulb',
+  height: 2.04,
+  type: ['grass', 'poison']
+},
+{
+  name: 'Ivy',
+  height: 3.03,
+  type: ['grass', 'poison']
+},
+{
+  name: 'Venu',
+  height: 6.07,
+  type: ['grass', 'poison'],
+},
+{
+  name: 'Charm',
+  height: 2.00,
+  type: ['fire'],
+},
+{
+  name: 'Char',
+  height: 3.07,
+  type: ['fire'],
+},
+{
+  name: 'Chari',
+  height: 5.07,
+  type: ['fire', 'flying'],
+},
+];
 
   // Declaration of Function & Parameter
   function printArrayDetails(list) {
