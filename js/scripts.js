@@ -86,4 +86,18 @@ let pokemonRepository = (function () {
       return key in pokemon;
     });
   }
+
+  function showDetails(pokemon) {
+    document.write("<p>" + pokemon.name + " (Height: " + pokemon.height + ")</p>");
+    if (pokemon.height > 6) {
+      document.write("<p> That is a big pokemon! </p>");
+    }
+    else if  (pokemon.height >= 3 && pokemon.height <=6) {
+      document.write("<p> That is an average pokemon. </p>")
+    }
+    else {
+      document.write("<p> That is a tiny pokemon!</p>");
+    }
+  }
+
 })();
