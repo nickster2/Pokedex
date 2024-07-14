@@ -79,4 +79,11 @@ let pokemonRepository = (function () {
       console.log("Not Valid Pokemon!");
     }
   }
+  // Function checks if Pokemon objects have the correct attributes (keys)
+  function isValidPokemon(pokemon) {
+    let requiredKeys = ['name', 'height', 'type'];
+    return requiredKeys.every(function(key) {
+      return key in pokemon;
+    });
+  }
 })();
