@@ -1,3 +1,5 @@
+// IIFE to encapsulate the pokemonList array to ensure it does not get accessed by global state.
+let pokemonRepository = (function () {
   pokemonList = [
     {
       name: 'Bulbasaur',
@@ -63,3 +65,4 @@
   ];
 
 
+})();
