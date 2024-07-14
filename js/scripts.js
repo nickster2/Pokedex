@@ -65,4 +65,8 @@ let pokemonRepository = (function () {
   ];
 
 
+  // Grabs Pokemon
+  function getAll() {
+    return pokemonList;
+  }
 })();
