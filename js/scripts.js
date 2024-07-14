@@ -105,4 +105,12 @@ let pokemonRepository = (function () {
     showDetails(pokemon);
   });
 
+  // Calling Function
+  return {
+    getAll: getAll,
+    add: add
+  };
+
 })();
+pokemonRepository.getAll();
+pokemonRepository.add({ name: 'Pikachu', height: 1.04, type: ['electric'] });
