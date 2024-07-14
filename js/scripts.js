@@ -100,4 +100,9 @@ let pokemonRepository = (function () {
     }
   }
 
+
+  pokemonList.forEach (function (pokemon) {
+    showDetails(pokemon);
+  });
+
 })();
