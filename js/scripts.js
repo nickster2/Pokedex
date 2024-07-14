@@ -69,4 +69,14 @@ let pokemonRepository = (function () {
   function getAll() {
     return pokemonList;
   }
+
+  // Adds new Pokemon to function
+  function add(pokemon) {
+    if (isValidPokemon(pokemon)) {
+      pokemonList.push(pokemon);
+    }
+     else {
+      console.log("Not Valid Pokemon!");
+    }
+  }
 })();
