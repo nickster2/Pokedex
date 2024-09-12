@@ -87,30 +87,13 @@ let pokemonRepository = (function () {
     });
   }
 
-  function showDetails(pokemon) {
-    document.write("<p>" + pokemon.name + " (Height: " + pokemon.height + ")</p>");
-    if (pokemon.height > 6) {
-      document.write("<p> That is a big pokemon! </p>");
-    }
-    else if  (pokemon.height >= 3 && pokemon.height <=6) {
-      document.write("<p> That is an average pokemon. </p>")
-    }
-    else {
-      document.write("<p> That is a tiny pokemon!</p>");
-    }
-  }
 
 
-  pokemonList.forEach (function (pokemon) {
     showDetails(pokemon);
-  });
-
   // Calling Function
   return {
     getAll: getAll,
-    add: add
   };
 
 })();
-pokemonRepository.getAll();
 pokemonRepository.add({ name: 'Pikachu', height: 1.04, type: ['electric'] });
