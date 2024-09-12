@@ -97,7 +97,13 @@ let pokemonRepository = (function () {
 
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
+    button.addEventListener('click', function(event) {
     showDetails(pokemon);
+    });
+   }
+  function showDetails(pokemon){
+    console.log(pokemon);
+  }
   // Calling Function
   return {
     getAll: getAll,
