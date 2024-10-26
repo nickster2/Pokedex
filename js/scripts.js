@@ -1,68 +1,9 @@
+// Shortcuts
+// Shift + TAB = Unindent code blocks
+// Ctrl + / = Comment out code
 // IIFE to encapsulate the pokemonList array to ensure it does not get accessed by global state.
 let pokemonRepository = (function () {
-  pokemonList = [
-    {
-      name: 'Bulbasaur',
-      height: 2.04,
-      type: ['grass', 'poison']
-    },
-    {
-      name: 'Ivysaur',
-      height: 3.03,
-      type: ['grass', 'poison']
-    },
-    {
-      name: 'Venusaur',
-      height: 6.07,
-      type: ['grass', 'poison'],
-    },
-    {
-      name: 'Charmander',
-      height: 2.00,
-      type: ['fire'],
-    },
-    {
-      name: 'Charmeleon',
-      height: 3.07,
-      type: ['fire'],
-    },
-    {
-      name: 'Charizard',
-      height: 5.07,
-      type: ['fire', 'flying'],
-    },
-
-    {
-      name: 'Squirtle',
-      height: 1.08,
-      type: ['water']
-    },
-    {
-      name: 'Wartortle',
-      height: 3.03,
-      type: ['water']
-    },
-    {
-      name: 'Blastoise',
-      height: 5.03,
-      type: ['water'],
-    },
-    {
-      name: 'Caterpie',
-      height: 1.00,
-      type: ['bug'],
-    },
-    {
-      name: 'Metapod',
-      height: 2.04,
-      type: ['bug'],
-    },
-    {
-      name: 'Butterfree',
-      height: 3.07,
-      type: ['bug', 'flying']
-    },
-  ];
+  pokemonList = [];
 
 
   // Grabs Pokemon
@@ -81,7 +22,6 @@ let pokemonRepository = (function () {
   }
   // Function checks if Pokemon objects have the correct attributes (keys)
   function isValidPokemon(pokemon) {
-    let requiredKeys = ['name', 'height', 'type'];
     return requiredKeys.every(function(key) {
       return key in pokemon;
     });
@@ -101,8 +41,6 @@ let pokemonRepository = (function () {
     showDetails(pokemon);
     });
    }
-  function showDetails(pokemon){
-    console.log(pokemon);
   }
   // Calling Function
   return {
@@ -112,10 +50,6 @@ let pokemonRepository = (function () {
   };
 
 })();
-
-pokemonRepository.add({ name: 'Pikachu', height: 1.04, type: ['electric'] });
-
-console.log(pokemonRepository.getAll());
 
 pokemonRepository.getAll().forEach(function (pokemon) {
   pokemonRepository.addListItem(pokemon);
