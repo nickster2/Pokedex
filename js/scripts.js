@@ -81,9 +81,12 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
   }
   // Calling Function
   return {
-    getAll: getAll,
     add: add,
-    addListItem: addListItem
+    getAll: getAll,
+    addListItem: addListItem,
+    loadList: loadList,
+    loadDetails: loadDetails,
+    showDetails: showDetails
   };
 
 })();
