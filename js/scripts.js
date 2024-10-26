@@ -23,6 +23,7 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
   }
   // Function checks if Pokemon objects have the correct attributes (keys)
   function isValidPokemon(pokemon) {
+    let requiredKeys = ['name'];
     return requiredKeys.every(function(key) {
       return key in pokemon;
     });
