@@ -91,6 +91,8 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
 })();
 
+pokemonRepository.loadList().then(function() {
 pokemonRepository.getAll().forEach(function (pokemon) {
   pokemonRepository.addListItem(pokemon);
+  });
 });
