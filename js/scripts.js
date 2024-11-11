@@ -4,8 +4,7 @@
 // IIFE to encapsulate the pokemonList array to ensure it does not get accessed by global state.
 let pokemonRepository = (function () {
   pokemonList = [];
-
-let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   // Grabs Pokemon
   function getAll() {
@@ -43,6 +42,7 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     showDetails(pokemon);
     });
    }
+
    function loadList() {
     return fetch(apiUrl).then(function (response) {
       return response.json();
@@ -50,14 +50,13 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
       json.results.forEach(function (item){
         let pokemon = {
           name: item.name,
-          detailslUrl: item.url
+          detailsUrl: item.url
         };
         add(pokemon);
         // console.log(pokemon);
       });
     }).catch(function (e) {
       console.error(e);
-    })
       alert("An error occured while fetching data. Please try again.");
     });
    }
@@ -68,6 +67,7 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
       return response.json();
     }).then(function (details){
     //Add details to item
+    // Add details to item
       item.imageUrl = details.sprites.front_default;
       item.height = details.height; 
       item.types = details.types;
@@ -79,7 +79,6 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   function showDetails(item){
     pokemonRepository.loadDetails(item).then(function() {
-    console.log(item);
     });
   }
   // Calling Function
@@ -89,7 +88,6 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     addListItem: addListItem,
     loadList: loadList,
     loadDetails: loadDetails,
-    showDetails: showDetails
   };
 
 })();
