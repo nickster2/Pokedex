@@ -58,6 +58,8 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     }).catch(function (e) {
       console.error(e);
     })
+      alert("An error occured while fetching data. Please try again.");
+    });
    }
 
    function loadDetails(item){
@@ -71,6 +73,7 @@ let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
       item.types = details.types;
     }).catch(function (e) {
       console.error(e);
+      alert("Failed to load details for this Pokémon.");
     });
    }
 
