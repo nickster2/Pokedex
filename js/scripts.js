@@ -83,14 +83,16 @@ let pokemonRepository = (function () {
       });
   }
 
+  function showDetails(pokemon) {
 
-  function showDetails(item){
-    pokemonRepository.loadDetails(item).then(function() {
-      showModal(
-        item.name, 
-        'Height: ' + item.height, 
-        item.imageUrl
-      );
+    pokemonRepository.loadDetails(pokemon).then(function () {
+  // Set content
+      document.querySelector("#pokemonModalLabel").innerText = pokemon.name;
+      document.querySelector("#pokemonHeight").innerText = 'Height: ' + pokemon.height;
+      document.querySelector("#pokemonImage").setAttribute('src', pokemon.imageUrl);
+
+  // Show the modal using Bootstrap
+      $('#pokemonModal').modal('show');
     });
   }
   // Calling Function
