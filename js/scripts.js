@@ -16,14 +16,14 @@ let pokemonRepository = (function () {
     if (isValidPokemon(pokemon)) {
       pokemonList.push(pokemon);
     }
-     else {
+    else {
       console.log("Not Valid Pokemon!");
     }
   }
   // Function checks if Pokemon objects have the correct attributes (keys)
   function isValidPokemon(pokemon) {
     let requiredKeys = ['name'];
-    return requiredKeys.every(function(key) {
+    return requiredKeys.every(function (key) {
       return key in pokemon;
     });
   }
@@ -38,28 +38,29 @@ let pokemonRepository = (function () {
 
     listPokemon.appendChild(button);
     pokemonList.appendChild(listPokemon);
-    button.addEventListener('click', function(event) {
     showDetails(pokemon);
+    button.addEventListener('click', function () {
+      showDetails(pokemon);
     });
-   }
+  }
 
    function loadList() {
+  function loadList() {
     return fetch(apiUrl).then(function (response) {
       return response.json();
     }).then(function (json) {
-      json.results.forEach(function (item){
         let pokemon = {
           name: item.name,
           detailsUrl: item.url
         };
         add(pokemon);
-        // console.log(pokemon);
+
       });
     }).catch(function (e) {
       console.error(e);
       alert("An error occured while fetching data. Please try again.");
     });
-   }
+  }
 
    function loadDetails(item){
     let url= item.detailsUrl;
@@ -133,13 +134,12 @@ let pokemonRepository = (function () {
     loadList: loadList,
     loadDetails: loadDetails,
     showDetails: showDetails,
-    showModal: showModal
   };
 
 })();
 
-pokemonRepository.loadList().then(function() {
-pokemonRepository.getAll().forEach(function (pokemon) {
-  pokemonRepository.addListItem(pokemon);
+pokemonRepository.loadList().then(function () {
+  pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonRepository.addListItem(pokemon);
   });
 });
