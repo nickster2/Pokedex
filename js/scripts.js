@@ -44,7 +44,6 @@ let pokemonRepository = (function () {
     });
   }
 
-   function loadList() {
   function loadList() {
     return fetch(apiUrl).then(function (response) {
       return response.json();
@@ -62,60 +61,12 @@ let pokemonRepository = (function () {
     });
   }
 
-   function loadDetails(item){
-    let url= item.detailsUrl;
-    return fetch(url).then(function (response){
       return response.json();
-    }).then(function (details){
-    // Add details to item
       item.imageUrl = details.sprites.front_default;
-      item.height = details.height; 
       item.types = details.types;
-    }).catch(function (e) {
-      console.error(e);
-      alert("Failed to load details for this Pokémon.");
-    });
-   }
 
-   // Show modal and pokemon details
-  function showModal (title, text, img) {
-    let modalTitle = document.querySelector("#pokemonModalLabel");
-    let pokemonHeight = document.querySelector("#pokemonHeight");
-    let pokemonImage = document.querySelector("#pokemonImage");
-    let modalContainer = document.querySelector("#modal-container");
-    let closeModalButton = document.querySelector(".close-modal");
-  // Set Content of Modal
-    modalTitle.innerText = title;
-    pokemonHeight.innerText = text;
-    pokemonImage.setAttribute('src', img);
-
-  // Show Content
-    modalContainer.classList.add("is-visible");
-    
-  // Hide modal when clicked out of it
-    modalContainer.addEventListener('click', (e) => {
-     let target = e.target;
-      if (target === modalContainer) {
-        hideModal();
-      }
-    });
-    modalContainer.addEventListener('click', (e) => {
-      let target = e.target;
-       if (target === closeModalButton) {
-         hideModal();
-       }
-     });
-     document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') { // ESC key
-        hideModal();
-      }
-    });
   }
 
- function hideModal() {
-  let modalContainer = document.querySelector("#modal-container");
-  modalContainer.classList.remove("is-visible");
-}
 
   function showDetails(item){
     pokemonRepository.loadDetails(item).then(function() {
