@@ -85,6 +85,7 @@ let pokemonRepository = (function () {
 
   function showDetails(pokemon) {
 
+    console.log("Showing modal for: ", pokemon);
     pokemonRepository.loadDetails(pokemon).then(function () {
   // Set content
       document.querySelector("#pokemonModalLabel").innerText = pokemon.name;
