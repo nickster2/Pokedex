@@ -66,6 +66,53 @@ let pokemonRepository = (function () {
       });
   }
 
+let container = document.getElementById('pokemon-container');
+
+// Show skeletons
+function showSkeletons(count) {
+  container.innerHTML = '';
+  for (let i = 0; i < count; i++) {
+    let skeleton = document.createElement('div');
+    skeleton.classList.add('skeleton-card');
+    skeleton.innerHTML = `
+      <div class="skeleton-image"></div>
+      <div class="skeleton-text"></div>
+      <div class="skeleton-text short"></div>
+    `;
+    container.appendChild(skeleton);
+  }
+}
+
+// Fetch Pokémon and replace skeletons
+function fetchPokemon() {
+  showSkeletons(10); // Show 10 skeleton placeholders
+
+  let url = 'https://pokeapi.co/api/v2/pokemon?limit=10';
+  fetch(url)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      container.innerHTML = ''; // Clear skeletons
+
+      data.results.forEach(function (pokemon) {
+        let id = pokemon.url.split('/')[6]; // Extract Pokémon ID
+        let card = document.createElement('div');
+        card.classList.add('pokemon-card');
+        card.innerHTML = `
+          <h2>${pokemon.name}</h2>
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" alt="${pokemon.name}" />
+        `;
+        container.appendChild(card);
+      });
+    })
+    .catch(function (error) {
+      console.error('Error fetching Pokémon:', error);
+    });
+}
+
+fetchPokemon();
+
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url)
@@ -86,7 +133,6 @@ let pokemonRepository = (function () {
   }
 
   function showDetails(pokemon) {
-    console.log("Showing modal for: ", pokemon);
     pokemonRepository.loadDetails(pokemon).then(function () {
       // Set content
       document.querySelector("#pokemonModalLabel").innerText = pokemon.name;
