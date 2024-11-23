@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Pokemon';
+  src: url('/fonts/pokemonfont.ttf') format('truetype');
+  font-weight: normal;
+  font-size: normal;
+}
+
 :root {
   --text-color: #000000;
   --background-color: #dfd8d3;
@@ -37,13 +44,6 @@ body {
 .portfolio-site {
   height: 30px;
   width: auto;
-}
-
-@font-face {
-  font-family: 'Pokemon';
-  src: url('/fonts/pokemonfont.ttf') format('truetype');
-  font-weight: normal;
-  font-size: normal;
 }
 
 .page-header h1 {
