@@ -76,10 +76,10 @@ let pokemonRepository = (function () {
         // Add details to item
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
-        item.types = details.types;
+        item.weight = details.weight;
+        item.types = details.types.map(typeObj => typeObj.type.name); // Extract names from API
       })
-
-      .catch(function (e) {
+        .catch(function (e) {
         console.error(e);
         alert("Failed to load details for this Pokémon.");
       });
@@ -88,9 +88,13 @@ let pokemonRepository = (function () {
   function showDetails(pokemon) {
     pokemonRepository.loadDetails(pokemon).then(function () {
       // Set content
+      let heightText = "Height: " + pokemon.height + "m"; // Height in meters
+      let weightText = "Weight: " + pokemon.weight + "kg"; // Weight in kilograms
+      let typesText = "Type(s): " + pokemon.types.join(", ") // Types seperated with commas in a list
       document.querySelector("#pokemonModalLabel").innerText = pokemon.name;
-      document.querySelector("#pokemonHeight").innerText =
-        "Height: " + pokemon.height + "m";
+      document.querySelector("#pokemonHeight").innerText = heightText;
+      document.querySelector("#pokemonWeight").innerText = weightText;
+      document.querySelector("#pokemonTypes").innerText = typesText;
       document
         .querySelector("#pokemonImage")
         .setAttribute("src", pokemon.imageUrl);
