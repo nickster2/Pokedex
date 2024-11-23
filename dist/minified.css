@@ -11,12 +11,11 @@
 
 body {
   background-color: var(--secondary-color);
-  font-family: 'Poetsen One', sans-serif;
+  font-family: 'Pokemon', 'Poetsen One', sans-serif;
   font-weight: var(--normal);
   font-size: var(--body-font);
   line-height: 1.6;
   font-style: normal;
-  color: var(--text-color);
 }
 
 .page-header {
@@ -40,27 +39,17 @@ body {
   width: auto;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap'); /* Example Font */
-
-#logo-container {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
+@font-face {
+  font-family: 'Pokemon';
+  src: url('/fonts/pokemonfont.ttf') format('truetype');
+  font-weight: normal;
+  font-size: normal;
 }
 
-#pokedex-logo {
-  font-family: 'Luckiest Guy', sans-serif; /* Use Pokemon Solid or similar */
-  font-size: 36px;
-  color: #ffcc00; /* Yellow base */
-  text-shadow: 
-    -2px -2px 0 #3558a4, /* Dark blue outline */
-    2px -2px 0 #3558a4,
-    -2px 2px 0 #3558a4,
-    2px 2px 0 #3558a4,
-    -4px -4px 0 #3b4cca; /* Slight darker shade for depth */
-  margin: 0;
-  cursor: pointer;
+.page-header h1 {
+  font-size: 2rem;
+  color: #ffcc00;
+  text-shadow: 2px 2px 0 #3366cc;
 }
 
 .pokemon-list {
@@ -69,6 +58,10 @@ body {
  padding-right: 40px;
  padding-top: 40px;
  padding-bottom: 40px;
+}
+
+.pokemon-list button {
+  letter-spacing: 1.5px;
 }
 
 .button-class {
@@ -101,11 +94,13 @@ body {
   background-color: var(--secondary-color);
   color: white;
   border: 1px solid var(--text-color);
+  letter-spacing: 1px;
 }
 
 .modal-body {
   background-color: var(--background-color);
   border: 1px solid var(--text-color);
+  letter-spacing: 1px;
 }
 
 .modal-container {
@@ -139,79 +134,38 @@ body {
   color: red;
 }
 
-.skeleton-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 150px;
-  margin: 10px;
-  padding: 20px;
-  background: #f3f3f3;
-  border-radius: 10px;
-}
-
-.skeleton-image {
-  height: 100px;
-  width: 100px;
-  background: linear-gradient(90deg, #e0e0e0 25%, #f7f7f7 50%, #e0e0e0 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-  border-radius: 50%;
-  margin-bottom: 10px;
-}
-
-.skeleton-text {
-  height: 20px;
-  width: 80%;
-  background: linear-gradient(90deg, #e0e0e0 25%, #f7f7f7 50%, #e0e0e0 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-  margin-bottom: 8px;
-}
-
-.skeleton-text.short {
-  width: 50%;
-}
-
-@keyframes shimmer {
-  from {
-    background-position: 200% 0;
-  }
-  to {
-    background-position: -200% 0;
-  }
-}
-
 @media all and (max-width: 500px) {
-  .grid {
+  .pokemon-list {
     grid-template-columns: 1fr;
     grid-gap: 10px;
-  }
-
-  .grid__item:last-child {
-    grid-column: auto / auto;
-    grid-row: auto / auto;
   }
 }
 
 @media all and (min-width: 500px) and (max-width: 750px) {
-  .grid {
+  .pokemon-list {
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
+    }
   }
 
-  .grid__item:last-child {
-    grid-column: auto / auto;
-    grid-row: auto / auto;
-  }
-}
   @media all and (max-width: 750px) {
-    .grid {
-      grid-gap: 10px;
+    .pokemon-list {
+      grid-gap: 50px;
     }
 
-    .grid__item:last-child {
-      grid-column: auto / auto;
-      grid-row: auto / auto;
+  }
+
+  @media all and (min-width: 770px) and (max-width: 1440px) {
+    .pokemon-list {
+      padding-right: 150px;
+      padding-left: 150px;
     }
+  }
+
+  @media all and (min-width: 1440px) and (max-width: 2560px) {
+      .pokemon-list {
+        padding-right: 250px;
+        padding-left: 250px;
+        display: grid;
+      }
   }
