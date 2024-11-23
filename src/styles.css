@@ -11,6 +11,7 @@
 
 body {
   background-color: var(--secondary-color);
+  font-family: 'Pokemon', 'Poetsen One', sans-serif;
   font-weight: var(--normal);
   font-size: var(--body-font);
   line-height: 1.6;
@@ -38,8 +39,17 @@ body {
   width: auto;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap'); /* Example Font */
+@font-face {
+  font-family: 'Pokemon';
+  src: url('/fonts/pokemonfont.ttf') format('truetype');
+  font-weight: normal;
+  font-size: normal;
+}
 
+.page-header h1 {
+  font-size: 2rem;
+  color: #ffcc00;
+  text-shadow: 2px 2px 0 #3366cc;
 }
 
 .pokemon-list {
